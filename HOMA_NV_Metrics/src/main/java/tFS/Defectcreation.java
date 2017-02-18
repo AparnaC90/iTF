@@ -89,7 +89,7 @@ public class Defectcreation extends iTF
 					System.out.println(newWorkItem.getID());
 
 				}
-				
+				System.out.println("End of for loop");
 			}}
 	}
 
