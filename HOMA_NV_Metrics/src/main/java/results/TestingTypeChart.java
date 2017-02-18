@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.ClientAnchor;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -21,53 +20,42 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import keyword.Passfail;
+import wrappers.iTF;
 
-public class Severitychart  {  
+public class TestingTypeChart  {
 	static int c=0;
-	public void chartS() throws IOException{                
-
+	
+	public void chartT() throws IOException
+	{
 		FileInputStream chart_file_input = new FileInputStream(new File(Passfail.pf.FileName));
-
 		XSSFWorkbook workbook = new XSSFWorkbook(chart_file_input);
-
 		XSSFSheet sheet = workbook.getSheetAt(0);
-
 		DefaultCategoryDataset bar_chart_dataset = new DefaultCategoryDataset();
-	//	String chart_label="a";
-		int chart_High=0,chart_Medium=0,chart_Low=0,chart_Critical=0;   
-		
+
+		int chart_Positive=0,chart_Negative=0;   
+	
 		for(int j=0; j<sheet.getLastRowNum(); j++)
 		{
-			try{
 			if(sheet.getRow(j)!=null){
-				sheet.getRow(j).getCell(16).setCellType(Cell.CELL_TYPE_STRING);	
-			Cell Text = sheet.getRow(j).getCell(16);
-			
-			if(Text!=null){
-			if(Text.getStringCellValue().contains("1 - Critical")){
-				chart_Critical++;
+				Cell Text = sheet.getRow(j).getCell(4);
+				if(Text!=null){
+				if(Text.getStringCellValue().contains("Positive")){
+					chart_Positive++;
+				}
+				if(Text.getStringCellValue().contains("Negative")){
+					chart_Negative++;
+				}
 			}
-			if(Text.getStringCellValue().contains("2 - High")){
-				chart_High++;
-			}
-			if(Text.getStringCellValue().contains("3 - Medium")){
-				chart_Medium++;
+		}
+		}
+		bar_chart_dataset.addValue(chart_Positive,"Status","Positive"); 
+		bar_chart_dataset.addValue(chart_Negative,"Status","Negative");
 
-			}
-			if(Text.getStringCellValue().contains("4 - Low")){
-				chart_Low++;
+		//3D Chart
+		JFreeChart BarChartObject=ChartFactory.createBarChart3D("Test Execution Report by Testing Type","Type","No. of Test cases",bar_chart_dataset,PlotOrientation.VERTICAL,true,true,false);  
 
-			}
-			}
-		bar_chart_dataset.addValue(chart_Critical,"Severity","1-Critical"); 
-		bar_chart_dataset.addValue(chart_High,"Severity","2-High");
-		bar_chart_dataset.addValue(chart_Medium,"Severity","3-Medium");
-		bar_chart_dataset.addValue(chart_Low,"Severity","4-Low");
-		
 		//2D Chart
-		//JFreeChart BarChartObject=ChartFactory.createBarChart("Excecution Report Based on Severity","Level","Level",bar_chart_dataset,PlotOrientation.VERTICAL,true,true,false);  
-		//3D chart
-		JFreeChart BarChartObject=ChartFactory.createBarChart3D("Defects By Severity","Level","No. of Defects",bar_chart_dataset,PlotOrientation.VERTICAL,true,true,false);  
+		//	JFreeChart BarChartObject=ChartFactory.createBarChart("Test Execution Status","Status","No. of Test cases",bar_chart_dataset,PlotOrientation.VERTICAL,true,true,false);  
 
 		int width=440;
 		int height=380; 
@@ -84,11 +72,10 @@ public class Severitychart  {
 
 		chart_file_input.close();               
 
-		FileOutputStream out = new FileOutputStream(new File("./reports/Chart/Severitychart"+c+".xlsx"));
+		FileOutputStream out = new FileOutputStream(new File("./reports/Chart/Testingtype"+c+".xlsx"));
 		workbook.write(out);
-		out.close();            
-
-		}}catch(Exception e){}
-			}
-			}
+		out.close();  
 	}
+
+
+}
