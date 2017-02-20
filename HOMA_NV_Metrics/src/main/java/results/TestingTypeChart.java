@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.ClientAnchor;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -31,11 +34,13 @@ public class TestingTypeChart  {
 		XSSFWorkbook workbook = new XSSFWorkbook(chart_file_input);
 		XSSFSheet sheet = workbook.getSheetAt(0);
 		DefaultCategoryDataset bar_chart_dataset = new DefaultCategoryDataset();
-
+		
+		String fileName = new SimpleDateFormat("yyyy-MM-dd hhmm'.Testingtype'").format(new Date());
 		int chart_Positive=0,chart_Negative=0;   
 	
 		for(int j=0; j<sheet.getLastRowNum(); j++)
 		{
+			try{
 			if(sheet.getRow(j)!=null){
 				Cell Text = sheet.getRow(j).getCell(4);
 				if(Text!=null){
@@ -46,8 +51,8 @@ public class TestingTypeChart  {
 					chart_Negative++;
 				}
 			}
-		}
-		}
+		
+		
 		bar_chart_dataset.addValue(chart_Positive,"Status","Positive"); 
 		bar_chart_dataset.addValue(chart_Negative,"Status","Negative");
 
@@ -72,10 +77,13 @@ public class TestingTypeChart  {
 
 		chart_file_input.close();               
 
-		FileOutputStream out = new FileOutputStream(new File("./reports/Chart/Testingtype"+c+".xlsx"));
+		FileOutputStream out = new FileOutputStream(new File("./reports/Chart/"+fileName+".xlsx"));
 		workbook.write(out);
 		out.close();  
+		}}catch(Exception e){}
 	}
-
-
+	}
 }
+
+
+

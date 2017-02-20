@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.ClientAnchor;
@@ -35,6 +37,8 @@ public class TypeChart {
 		XSSFSheet sheet = workbook.getSheetAt(0);
 
 		DefaultCategoryDataset bar_chart_dataset = new DefaultCategoryDataset();
+		
+		String fileName = new SimpleDateFormat("yyyy-MM-dd hhmm'.DefectsByTypeRepot'").format(new Date());
 
 		int chart_data1=0, chart_data2=0;   
 
@@ -77,7 +81,7 @@ public class TypeChart {
 
 		chart_file_input.close();               
 
-		FileOutputStream out = new FileOutputStream(new File("./reports/Chart/DefectsByTypeRepot"+".xlsx"));
+		FileOutputStream out = new FileOutputStream(new File("./reports/Chart/"+fileName+".xlsx"));
 		workbook.write(out);
 		out.close();            
 
