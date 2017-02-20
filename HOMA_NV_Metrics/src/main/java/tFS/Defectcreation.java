@@ -83,10 +83,14 @@ public class Defectcreation extends iTF
 					//	newWorkItem.getFields().getField(CoreFieldReferenceNames.HISTORY).setValue("Test History");
 					newWorkItem.getFields().getField("Severity").setValue(Severity);
 					newWorkItem.getFields().getField("Priority").setValue(Priority);
-					//		newWorkItem.getFields().getField("Repro Steps").setValue(TestSteps+"\n"+Expectedresult+"\n"+ActualResult);
+					//	newWorkItem.getFields().getField("Repro Steps").setValue(TestSteps+"\n"+Expectedresult+"\n"+ActualResult);
+					
+					
 
 					newWorkItem.save();
 					System.out.println(newWorkItem.getID());
+					
+					
 
 				}
 				System.out.println("End of for loop");
