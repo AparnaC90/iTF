@@ -8,10 +8,12 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
-import results.Chartclass;
+import results.DefectstatusChart;
+import results.DefectstatususingPie;
 import results.Defectreport;
 import results.PriorityChart;
 import results.Severitychart;
+import results.TestingTypeChart;
 import results.TypeChart;
 import tFS.Defectcreation;
 import utils.Reporter;
@@ -56,7 +58,7 @@ public class iTF extends GenericWrappers {
 	public void afterMethod() throws IOException{
 		quitBrowser();
 		
-		Chartclass Chartclass = new Chartclass();
+		DefectstatusChart Chartclass = new DefectstatusChart();
 		Chartclass.chart();
 		
 		PriorityChart priority = new PriorityChart();
@@ -68,11 +70,17 @@ public class iTF extends GenericWrappers {
 		TypeChart type = new TypeChart();
 		type.TypeC();
 		
+		TestingTypeChart testtype = new TestingTypeChart();
+		testtype.chartT();
+		
+		DefectstatususingPie pie = new DefectstatususingPie();
+		pie.ChartP();
+		
 		Defectreport defect = new Defectreport();
 		defect.Defect();
 		
-		Defectcreation tfs = new Defectcreation();
-		Defectcreation.createBugsinTFS();
+//		Defectcreation tfs = new Defectcreation();
+//		Defectcreation.createBugsinTFS();
 	}
 	
 	

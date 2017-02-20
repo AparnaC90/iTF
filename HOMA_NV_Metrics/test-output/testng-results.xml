@@ -1,102 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="312405" started-at="2017-02-18T05:27:10Z" finished-at="2017-02-18T05:32:23Z">
+  <suite name="Suite" duration-ms="184877" started-at="2017-02-20T05:17:03Z" finished-at="2017-02-20T05:20:08Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="312405" started-at="2017-02-18T05:27:10Z" finished-at="2017-02-18T05:32:23Z">
+    <test name="Test" duration-ms="184877" started-at="2017-02-20T05:17:03Z" finished-at="2017-02-20T05:20:08Z">
       <class name="keyword.RunScripts">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:keyword.RunScripts@21213b92]" name="beforeSuite" is-config="true" duration-ms="1873" started-at="2017-02-18T10:57:08Z" finished-at="2017-02-18T10:57:10Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:keyword.RunScripts@5abca1e0]" name="beforeSuite" is-config="true" duration-ms="1049" started-at="2017-02-20T10:47:02Z" finished-at="2017-02-20T10:47:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:keyword.RunScripts@21213b92]" name="beforeTest" is-config="true" duration-ms="1" started-at="2017-02-18T10:57:10Z" finished-at="2017-02-18T10:57:10Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:keyword.RunScripts@5abca1e0]" name="beforeTest" is-config="true" duration-ms="0" started-at="2017-02-20T10:47:03Z" finished-at="2017-02-20T10:47:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="startTestCase()[pri:0, instance:keyword.RunScripts@21213b92]" name="startTestCase" is-config="true" duration-ms="0" started-at="2017-02-18T10:57:10Z" finished-at="2017-02-18T10:57:10Z">
+        <test-method status="PASS" signature="startTestCase()[pri:0, instance:keyword.RunScripts@5abca1e0]" name="startTestCase" is-config="true" duration-ms="1" started-at="2017-02-20T10:47:03Z" finished-at="2017-02-20T10:47:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:keyword.RunScripts@21213b92]" name="beforeMethod" is-config="true" duration-ms="11628" started-at="2017-02-18T10:57:10Z" finished-at="2017-02-18T10:57:22Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:keyword.RunScripts@5abca1e0]" name="beforeMethod" is-config="true" duration-ms="25549" started-at="2017-02-20T10:47:03Z" finished-at="2017-02-20T10:47:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="runScripts()[pri:0, instance:keyword.RunScripts@21213b92]" name="runScripts" duration-ms="62664" started-at="2017-02-18T10:57:22Z" finished-at="2017-02-18T10:58:24Z">
+        <test-method status="PASS" signature="runScripts()[pri:0, instance:keyword.RunScripts@5abca1e0]" name="runScripts" duration-ms="122907" started-at="2017-02-20T10:47:29Z" finished-at="2017-02-20T10:49:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScripts -->
-        <test-method status="FAIL" signature="afterMethod()[pri:0, instance:keyword.RunScripts@21213b92]" name="afterMethod" is-config="true" duration-ms="0" started-at="2017-02-18T10:58:24Z" finished-at="2017-02-18T10:58:24Z">
-          <exception class="com.microsoft.tfs.core.ws.runtime.exceptions.TransportException">
-            <message>
-              <![CDATA[Connection reset]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[com.microsoft.tfs.core.ws.runtime.exceptions.TransportException: Connection reset
-	at com.microsoft.tfs.core.ws.runtime.client.SOAPService.executeSOAPRequestInternal(SOAPService.java:744)
-	at com.microsoft.tfs.core.ws.runtime.client.SOAPService.executeSOAPRequest(SOAPService.java:473)
-	at ms.tfs.workitemtracking.clientservices._03._ClientService5Soap12Service.update(_ClientService5Soap12Service.java:909)
-	at com.microsoft.tfs.core.clients.workitem.internal.update.BaseUpdatePackage.update(BaseUpdatePackage.java:88)
-	at com.microsoft.tfs.core.clients.workitem.internal.WorkItemImpl.internalSave(WorkItemImpl.java:673)
-	at com.microsoft.tfs.core.clients.workitem.internal.WorkItemImpl.save(WorkItemImpl.java:388)
-	at tFS.Defectcreation.createBugsinTFS(Defectcreation.java:88)
-	at wrappers.iTF.afterMethod(iTF.java:75)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:216)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:712)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:823)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:778)
-	at org.testng.TestRunner.run(TestRunner.java:632)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1225)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1150)
-	at org.testng.TestNG.runSuites(TestNG.java:1075)
-	at org.testng.TestNG.run(TestNG.java:1047)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(Unknown Source)
-	at java.net.SocketInputStream.read(Unknown Source)
-	at java.io.BufferedInputStream.fill(Unknown Source)
-	at java.io.BufferedInputStream.read(Unknown Source)
-	at com.microsoft.tfs.core.httpclient.ContentLengthInputStream.read(ContentLengthInputStream.java:178)
-	at java.io.FilterInputStream.read(Unknown Source)
-	at com.microsoft.tfs.core.httpclient.AutoCloseInputStream.read(AutoCloseInputStream.java:97)
-	at java.util.zip.CheckedInputStream.read(Unknown Source)
-	at java.util.zip.GZIPInputStream.readUByte(Unknown Source)
-	at java.util.zip.GZIPInputStream.readUShort(Unknown Source)
-	at java.util.zip.GZIPInputStream.readHeader(Unknown Source)
-	at java.util.zip.GZIPInputStream.<init>(Unknown Source)
-	at java.util.zip.GZIPInputStream.<init>(Unknown Source)
-	at com.microsoft.tfs.core.ws.runtime.client.SOAPService.getResponseStream(SOAPService.java:797)
-	at com.microsoft.tfs.core.ws.runtime.client.SOAPService.executeSOAPRequestInternal(SOAPService.java:621)
-	... 34 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- com.microsoft.tfs.core.ws.runtime.exceptions.TransportException -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:keyword.RunScripts@5abca1e0]" name="afterMethod" is-config="true" duration-ms="36397" started-at="2017-02-20T10:49:32Z" finished-at="2017-02-20T10:50:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="SKIP" signature="afterTest()[pri:0, instance:keyword.RunScripts@21213b92]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-02-18T11:02:23Z" finished-at="2017-02-18T11:02:23Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:keyword.RunScripts@5abca1e0]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-02-20T10:50:08Z" finished-at="2017-02-20T10:50:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="SKIP" signature="afterSuite()[pri:0, instance:keyword.RunScripts@21213b92]" name="afterSuite" is-config="true" duration-ms="0" started-at="2017-02-18T11:02:23Z" finished-at="2017-02-18T11:02:23Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:keyword.RunScripts@5abca1e0]" name="afterSuite" is-config="true" duration-ms="655" started-at="2017-02-20T10:50:08Z" finished-at="2017-02-20T10:50:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->

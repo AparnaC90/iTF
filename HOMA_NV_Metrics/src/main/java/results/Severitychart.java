@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.ClientAnchor;
@@ -33,15 +35,17 @@ public class Severitychart  {
 		XSSFSheet sheet = workbook.getSheetAt(0);
 
 		DefaultCategoryDataset bar_chart_dataset = new DefaultCategoryDataset();
-	//	String chart_label="a";
+	
+		String fileName = new SimpleDateFormat("yyyy-MM-dd hhmm'.DefectsbySeverity'").format(new Date());
+		
 		int chart_High=0,chart_Medium=0,chart_Low=0,chart_Critical=0;   
 		
 		for(int j=0; j<sheet.getLastRowNum(); j++)
 		{
 			try{
 			if(sheet.getRow(j)!=null){
-				sheet.getRow(j).getCell(16).setCellType(Cell.CELL_TYPE_STRING);	
-			Cell Text = sheet.getRow(j).getCell(16);
+				sheet.getRow(j).getCell(7).setCellType(Cell.CELL_TYPE_STRING);	
+			Cell Text = sheet.getRow(j).getCell(7);
 			
 			if(Text!=null){
 			if(Text.getStringCellValue().contains("1 - Critical")){
@@ -84,7 +88,7 @@ public class Severitychart  {
 
 		chart_file_input.close();               
 
-		FileOutputStream out = new FileOutputStream(new File("./reports/Chart/Severitychart"+c+".xlsx"));
+		FileOutputStream out = new FileOutputStream(new File("./reports/Chart/"+fileName+".xlsx"));
 		workbook.write(out);
 		out.close();            
 

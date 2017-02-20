@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.ClientAnchor;
@@ -36,7 +38,9 @@ public class PriorityChart {
 		XSSFSheet sheet = workbook.getSheetAt(0);
 
 		DefaultCategoryDataset bar_chart_dataset = new DefaultCategoryDataset();
-		//	String chart_label="a";
+		
+		String fileName = new SimpleDateFormat("yyyy-MM-dd hhmm'.DefectsByPriorityReport'").format(new Date());
+		
 		int chart_High=0,chart_Medium=0,chart_Low=0,chart_Simple=0;   
 
 		for(int j=0; j<sheet.getLastRowNum(); j++)
@@ -44,9 +48,9 @@ public class PriorityChart {
 			try{
 			if(sheet.getRow(j)!=null){
 				
-			sheet.getRow(j).getCell(15).setCellType(Cell.CELL_TYPE_STRING);	
+			sheet.getRow(j).getCell(6).setCellType(Cell.CELL_TYPE_STRING);	
 				
-			Cell Text = sheet.getRow(j).getCell(15);
+			Cell Text = sheet.getRow(j).getCell(6);
 			
 			if(Text!=null){
 
@@ -68,7 +72,7 @@ public class PriorityChart {
 			bar_chart_dataset.addValue(chart_Medium,"Priority","Medium");
 			bar_chart_dataset.addValue(chart_Low,"Priority","Low");
 			bar_chart_dataset.addValue(chart_Simple,"Priority","Simple");
-			}
+		
 
 			//2D Chart
 			//JFreeChart BarChartObject=ChartFactory.createBarChart("Excecution Report Based on Prority","Level","Level",bar_chart_dataset,PlotOrientation.VERTICAL,true,true,false);  
@@ -90,11 +94,11 @@ public class PriorityChart {
 
 			chart_file_input.close();               
 
-			FileOutputStream out = new FileOutputStream(new File("./reports/Chart/DefectsByPriorityReport"+".xlsx"));
+			FileOutputStream out = new FileOutputStream(new File("./reports/Chart/"+fileName+".xlsx"));
 			workbook.write(out);
 			out.close();            
 		
-		}catch(Exception e){
+			}}catch(Exception e){
 			
 			}
 			}

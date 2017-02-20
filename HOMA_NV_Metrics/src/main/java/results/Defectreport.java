@@ -48,10 +48,10 @@ public class Defectreport extends iTF {
 			//Test Procedure
 			Cell col2 =sheet.getRow(j).getCell(2);
 			//Prority
-			sheet.getRow(j).getCell(15).setCellType(Cell.CELL_TYPE_STRING);
-			Cell col3 =sheet.getRow(j).getCell(15);
+			sheet.getRow(j).getCell(6).setCellType(Cell.CELL_TYPE_STRING);
+			Cell col3 =sheet.getRow(j).getCell(6);
 			//severity
-			Cell col5 =sheet.getRow(j).getCell(16);
+			Cell col5 =sheet.getRow(j).getCell(7);
 			//Expected result
 			Cell col6 =sheet.getRow(j).getCell(12);
 			//Actual Result
